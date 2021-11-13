@@ -9,11 +9,14 @@ public class main {
     private static int f,r;
     private static String tipp;
     private static boolean b=false;
+    private static String[] storage = {"/","\\","|","\\","/","O","|" };
+
 
     public static void main(String[] args) {
         System.out.println("Welcome to HANGMAN: \nPlease enter Word: >");
         rWord = scanner.nextLine().toUpperCase();
         rAWord = rWord.split("");
+        ausgabe = new String[7];
 
         aWord = new String[rWord.length()];
         for (int i = 0; i < aWord.length; i++) {
@@ -24,7 +27,7 @@ public class main {
             ausgabe[i] = " ";
         }
 
-        while (f < 10 && r != aWord.length){
+        while (f < 7 && r != aWord.length){
             System.out.print("Lösungswort: ");
             for (String s: aWord) {
                 System.out.print(s);
@@ -42,7 +45,14 @@ public class main {
 
             if (!b){
                 f++;
-                System.out.println("Du hast noch "+(10-f)+" Fehlversuche übrig");
+                System.out.println("Du hast noch "+(7-f)+" Fehlversuche übrig");
+                ausgabe[f-1] = storage[f-1];
+                System.out.println("_____");
+                System.out.println("|   " + ausgabe[6]); // Seil oben
+                System.out.println("|  "  + ausgabe[3] + ausgabe[5] + ausgabe[4]); // linke Hand, Kopf, rechte Hand
+                System.out.println("|   " + ausgabe[2] ); // Körper
+                System.out.println("|  "  + ausgabe[0] + " " + ausgabe[1] ); // linker Fuß, rechter Fuß
+                }
             }
 
             if (r == rWord.length()){
