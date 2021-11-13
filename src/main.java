@@ -5,7 +5,7 @@ public class main {
 
     private static Scanner scanner = new Scanner(System.in);
     private static String rWord;
-    private static String[] aWord, rAWord;
+    private static String[] aWord, rAWord, ausgabe;
     private static int f,r;
     private static String tipp;
     private static boolean b=false;
@@ -20,6 +20,9 @@ public class main {
             aWord[i] = "_";
         }
 
+        for (int i = 0; i < 7; i++) {
+            ausgabe[i] = " ";
+        }
 
         while (f < 10 && r != aWord.length){
             System.out.print("Lösungswort: ");
@@ -51,4 +54,4 @@ public class main {
 
 
     }
-}
+
